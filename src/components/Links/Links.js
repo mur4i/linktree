@@ -5,7 +5,8 @@ function Links () {
     const LinksTable = [
         { id: 1 , urlNome: "Github", url: "https://github.com/mur4i"},
         { id: 2 , urlNome: "Discord", url: "https://discordapp.com/users/600843526825181219"},
-        { id: 3 , urlNome: "QBCore Brasil", url: "https://discord.gg/uEfGD4mmVh"}
+        { id: 3 , urlNome: "QBCore Brasil", url: "https://discord.gg/uEfGD4mmVh"},
+        { id: 4 , urlNome: "Agendar", url: "https://calendly.com/mur444i/consultoria"}
     ]
 
     const LinksHtml = LinksTable.map((props) => {
