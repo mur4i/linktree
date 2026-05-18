@@ -1,0 +1,84 @@
+.destroyer-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+}
+
+/* ===== Damage states applied to .card and .link ===== */
+
+[data-destroyable][data-damage] {
+  animation: dmg-shake 0.25s ease;
+}
+
+[data-destroyable][data-damage="1"] {
+  filter: brightness(0.95);
+}
+
+[data-destroyable][data-damage="2"] {
+  filter: brightness(0.88) saturate(0.85);
+}
+
+[data-destroyable][data-damage="3"] {
+  filter: brightness(0.78) saturate(0.7) contrast(1.05);
+  transform: rotate(-0.4deg);
+}
+
+[data-destroyable][data-damage="4"] {
+  filter: brightness(0.65) saturate(0.5) contrast(1.1);
+  transform: rotate(0.8deg) translateY(2px);
+  text-shadow:
+    1.5px 0 0 rgba(248, 113, 113, 0.7),
+    -1.5px 0 0 rgba(96, 165, 250, 0.7);
+}
+
+[data-destroyable][data-damage="5"] {
+  filter: brightness(0.45) saturate(0.3) contrast(1.15) blur(0.3px);
+  transform: rotate(-1.2deg) translateY(3px);
+  text-shadow:
+    2.5px 0 0 rgba(248, 113, 113, 0.8),
+    -2.5px 0 0 rgba(96, 165, 250, 0.8);
+  animation: glitch-flicker 0.15s steps(2) infinite;
+}
+
+@keyframes glitch-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+[data-destroyable][data-destroyed="true"] {
+  animation: dmg-shatter 0.7s cubic-bezier(0.5, 0, 0.75, 0) forwards !important;
+  pointer-events: none !important;
+}
+
+@keyframes dmg-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-4px) translateY(-1px); }
+  40% { transform: translateX(4px) translateY(1px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(2px); }
+}
+
+@keyframes dmg-shatter {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+    filter: brightness(0.45) saturate(0.3);
+  }
+  30% {
+    opacity: 0.9;
+    transform: scale(1.05) rotate(1deg);
+    filter: brightness(1.5) saturate(2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.6) rotate(12deg) translateY(50px);
+    filter: brightness(0.3) blur(2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-destroyable][data-damage] {
+    animation: none;
+  }
+}

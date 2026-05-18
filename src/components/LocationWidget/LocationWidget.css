@@ -1,0 +1,31 @@
+.location {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px 22px;
+}
+
+.location__city {
+  margin: 4px 0 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+}
+
+.location__coords {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+
+.location__sub {
+  margin: 4px 0 0;
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}

@@ -1,0 +1,23 @@
+.clock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 20px 22px;
+}
+
+.clock__time {
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--foreground);
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 16px rgba(52, 211, 153, 0.35);
+}
+
+.clock__zone {
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  margin: 0;
+}
